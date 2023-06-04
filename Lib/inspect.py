@@ -561,7 +561,7 @@ def isabstract(object):
     return False
 
 def isimmortal(object, /):
-   """Return true if the object is immortal."""
+    """Return true if the object is immortal."""
     try:
         return sys._is_immortal(object)
     except AttributeError:
