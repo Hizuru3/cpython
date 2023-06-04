@@ -125,6 +125,7 @@ __all__ = [
     "isgenerator",
     "isgeneratorfunction",
     "isgetsetdescriptor",
+    "isimmortal",
     "ismemberdescriptor",
     "ismethod",
     "ismethoddescriptor",
@@ -558,6 +559,13 @@ def isabstract(object):
             if getattr(value, "__isabstractmethod__", False):
                 return True
     return False
+
+def isimmortal(object, /):
+   """Return true if the object is immortal."""
+    try:
+        return sys._is_immortal(object)
+    except AttributeError:
+        raise NotImplementedError from None
 
 def _getmembers(object, predicate, getter):
     results = []
