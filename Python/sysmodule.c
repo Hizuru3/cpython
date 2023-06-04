@@ -1868,7 +1868,7 @@ PyDoc_STRVAR(sys__is_immortal__doc,
 "\n"
 "Return whether the given object is immortal.");
 
-static *PyObject
+static PyObject*
 sys__is_immortal(PyObject *module, PyObject *object)
 {
     return _Py_IsImmortal(object) ? Py_True : Py_False;
